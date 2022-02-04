@@ -1,5 +1,5 @@
 import pandas as pd
+import time
 
-df = pd.DataFrame()
-df.to_excel('./TestFolder/output.xlsx')
-print('Done!')
+
+print(str(time.localtime(time.time()).tm_year))
