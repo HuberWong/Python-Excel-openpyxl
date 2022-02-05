@@ -28,8 +28,10 @@ def writeSheetDate(book, startTime):
 def saveFileByTimeToOutput(basalPlate, startTime, endTime):
     book = openpyxl.load_workbook('./BasalPlate/' + basalPlate + '.xlsx')
     # print(type(startTime.day))
-    while startTime.day <= endTime.day:
+    while (endTime - startTime).days >= 0:
         writeSheetDate(book, startTime)
         book.save('./Output/' + basalPlate + '-' + str(startTime.month) + '月' + str(startTime.day) + '日' + '.xlsx')
+        print('文件'+'./Output/' + basalPlate + '-' + str(startTime.month) + '月' + str(startTime.day) + '日' + '.xlsx'+'构建完成')
+        print(startTime)
         startTime = startTime + datetime.timedelta(1)
     return 1
