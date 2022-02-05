@@ -1,5 +1,8 @@
-import pandas as pd
-import time
+import myLib
+import datetime
 
-
-print(str(time.localtime(time.time()).tm_year))
+startTime = datetime.datetime.strptime('2022-01-14', '%Y-%m-%d')
+endTime = datetime.datetime.strptime('2022-02-28', '%Y-%m-%d')
+basalPlates = ['20财14班学生体温检测表', '20财15班学生体温检测表', '21财8班学生体温检测表', '21财9班学生体温检测表']
+for basalPlate in basalPlates:
+    myLib.saveFileByTimeToOutput(basalPlate, startTime, endTime)
